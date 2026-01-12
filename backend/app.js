@@ -8,13 +8,11 @@ const authRoutes = require('./routes/AuthRoutes');
 
 const app = express();
 
-// Aumentamos o limite para 50MB (suficiente para fotos grandes)
 app.use(express.json({ limit: '50mb' })); 
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors());
 
-// --- Sincronismo com o Banco de Dados ---
-// MUDANÇA AQUI: { alter: true } vai criar as colunas que faltam (recebedorNome, etc)
+
 sequelize.sync({ alter: true }) 
     .then(() => {
         console.log('✅ Banco de dados ATUALIZADO (Colunas novas criadas)!');

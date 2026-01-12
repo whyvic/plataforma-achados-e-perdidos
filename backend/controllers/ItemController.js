@@ -1,6 +1,5 @@
 const Item = require('../models/Item');
 
-// 1. LISTAR ITENS (Todo mundo pode ver)
 exports.getItems = async (req, res) => {
     try {
         const items = await Item.findAll();
@@ -10,7 +9,7 @@ exports.getItems = async (req, res) => {
     }
 };
 
-// 2. CRIAR ITEM (Todo mundo pode criar)
+
 exports.createItem = async (req, res) => {
     try {
         const newItem = await Item.create(req.body);
@@ -20,10 +19,9 @@ exports.createItem = async (req, res) => {
     }
 };
 
-// 3. ATUALIZAR STATUS (Só Porteiro pode!)
+
 exports.registrarDevolucao = async (req, res) => {
     try {
-        // --- VERIFICAÇÃO DE SEGURANÇA ---
         // Se o usuário não existe ou NÃO for Porteiro/Admin, bloqueia.
         if (!req.user || (req.user.perfil !== 'Porteiro' && req.user.perfil !== 'Admin')) {
             return res.status(403).json({ message: "⛔ Acesso negado! Apenas porteiros podem mudar status." });
@@ -54,7 +52,7 @@ exports.registrarDevolucao = async (req, res) => {
     }
 };
 
-// 4. EXCLUIR ITEM (Só Porteiro pode!)
+// 4. EXCLUIR ITEM 
 exports.deleteItem = async (req, res) => {
     try {
         // --- VERIFICAÇÃO DE SEGURANÇA ---

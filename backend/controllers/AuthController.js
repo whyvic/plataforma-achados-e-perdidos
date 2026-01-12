@@ -2,8 +2,7 @@ const Usuario = require('../models/Usuario');
 const bcrypt = require('bcryptjs'); // Para criptografar a senha
 const jwt = require('jsonwebtoken'); // Para gerar o token
 
-// --- Método de Registo (Cria um novo Porteiro) ---
-// Atende a RN05: Apenas porteiros realizam cadastro informando nome e turno.
+//método de Registo (Cria um novo Porteiro)
 exports.register = async (req, res) => {
     try {
         const { nome, email, senha, turno } = req.body;
@@ -42,7 +41,7 @@ exports.register = async (req, res) => {
     }
 };
 
-// --- Método de Login (Autenticação) ---
+// Método de Login (Autenticação) 
 // Gera o token que permitirá ao porteiro acessar as rotas de devolução.
 exports.login = async (req, res) => {
     try {
@@ -70,7 +69,7 @@ exports.login = async (req, res) => {
 
         res.json({
             message: "Login realizado com sucesso!",
-            token: token, // O Frontend vai guardar isso para usar depois
+            token: token,
             usuario: {
                 nome: usuario.nome,
                 perfil: usuario.perfil
