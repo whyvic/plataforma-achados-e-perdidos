@@ -1,0 +1,371 @@
+/* login-responsive.css - Design Corporativo Padronizado */
+
+/* Container Principal do Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Card de Login */
+.login-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(19, 41, 96, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cabecalho do Login */
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #132960;
+    margin: 0 0 8px 0;
+}
+
+.login-header p {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Grupos de Input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #132960;
+    margin-left: 4px;
+}
+
+/* Wrapper do Input com Icone */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    z-index: 2;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 16px 16px 52px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #495057;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #499BCE;
+    box-shadow: 0 0 0 4px rgba(73, 155, 206, 0.1);
+    background: #fafbfc;
+}
+
+.form-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+    color: #499BCE;
+}
+
+.form-input::placeholder {
+    color: #adb5bd;
+    font-size: 15px;
+}
+
+/* Acoes do Formulario */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+/* Botao Primario */
+.btn-primary {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #132960 0%, #1a3470 100%);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1a3470 0%, #0f1f4a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(19, 41, 96, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Divisor */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e9ecef;
+}
+
+.divider span {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    margin: 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botao Secundario */
+.btn-secondary {
+    width: 100%;
+    padding: 14px 24px;
+    background: transparent;
+    border: 2px solid #499BCE;
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #499BCE;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background: #499BCE;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(73, 155, 206, 0.3);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Media Queries Responsivas */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .login-card {
+        padding: 32px;
+        max-width: 440px;
+    }
+    
+    .login-header h1 {
+        font-size: 26px;
+    }
+    
+    .form-input {
+        padding: 14px 14px 14px 48px;
+        font-size: 15px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 16px;
+        min-height: calc(100vh - 70px);
+    }
+    
+    .login-card {
+        padding: 28px 24px;
+        max-width: 100%;
+        border-radius: 12px;
+    }
+    
+    .login-header {
+        margin-bottom: 28px;
+    }
+    
+    .login-header h1 {
+        font-size: 24px;
+    }
+    
+    .login-header p {
+        font-size: 15px;
+    }
+    
+    .login-form {
+        gap: 20px;
+    }
+    
+    .input-group {
+        gap: 6px;
+    }
+    
+    .input-label {
+        font-size: 15px;
+    }
+    
+    .form-input {
+        padding: 12px 12px 12px 44px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .input-icon {
+        left: 14px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 18px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .form-actions {
+        gap: 14px;
+        margin-top: 4px;
+    }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 12px;
+    }
+    
+    .login-card {
+        padding: 24px 20px;
+        border-radius: 10px;
+    }
+    
+    .login-header h1 {
+        font-size: 22px;
+    }
+    
+    .login-header p {
+        font-size: 14px;
+    }
+    
+    .form-input {
+        padding: 11px 11px 11px 40px;
+        font-size: 14px;
+    }
+    
+    .input-icon {
+        left: 12px;
+    }
+    
+    .input-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 11px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Orientacao paisagem em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .login-container {
+        min-height: calc(100vh - 60px);
+        padding: 12px;
+    }
+    
+    .login-card {
+        padding: 20px;
+        margin: 8px 0;
+    }
+    
+    .login-header {
+        margin-bottom: 20px;
+    }
+    
+    .login-form {
+        gap: 16px;
+    }
+}
+
+/* Efeitos de hover para desktop */
+@media (min-width: 769px) {
+    .form-input:hover {
+        border-color: #ced4da;
+        background: #f8f9fa;
+    }
+    
+    .input-wrapper:hover .input-icon {
+        color: #495057;
+    }
+}

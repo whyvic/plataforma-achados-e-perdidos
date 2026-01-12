@@ -1,0 +1,130 @@
+/* css/toast.css */
+
+.toast-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; 
+}
+
+.toast-modal { 
+    width: 624px; 
+    height: 233px; 
+    background-color: #E8E8E8; 
+    border-radius: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
+}
+
+.toast-header { 
+    height: 35px; 
+    background-color: #499BCE; 
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 15px; 
+    font-family: Arial, sans-serif; 
+    font-size: 24px; 
+    font-weight: normal;
+}
+
+.toast-close-btn { 
+    width: 25px;
+    height: 25px;
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 20px; 
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    line-height: 1;
+}
+
+.toast-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toast-content { 
+    flex-grow: 1; 
+    padding: 20px; 
+    text-align: center; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.toast-content h1 { 
+    font-size: 24px; 
+    color: #000; 
+    margin: 0 0 15px 0;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.toast-content p { 
+    font-size: 20px; 
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+    font-family: Arial, sans-serif;
+}
+
+.toast-footer { 
+    padding: 0 20px 20px; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-toast-action { 
+    padding: 10px 20px; 
+    background-color: #003A65; 
+    color: white; 
+    border: none; 
+    border-radius: 25px;
+    font-size: 16px; 
+    cursor: pointer; 
+    font-family: 'Montserrat', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-toast-action:hover {
+    background-color: #002952;
+}
+
+.btn-toast-action .check-icon {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.btn-toast-action .check-icon::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #003A65;
+    font-size: 12px;
+    font-weight: bold;
+}

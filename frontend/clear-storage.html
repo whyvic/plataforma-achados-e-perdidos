@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Limpar Storage</title>
+</head>
+<body>
+    <h2>Limpando localStorage...</h2>
+    <script>
+        localStorage.removeItem('objetosEncontrados');
+        localStorage.clear();
+        document.body.innerHTML = '<h2 style="color: green;">✅ localStorage limpo! <br><br><a href="home.html">🏠 Voltar ao Home</a></h2>';
+        console.log('localStorage limpo!');
+    </script>
+</body>
+</html>

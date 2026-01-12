@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Achados e Perdidos - Login</title>
+    <link rel="stylesheet" href="css/responsive-global.css">
+    <link rel="stylesheet" href="css/login-responsive.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/brasao1_horizontal_cor_72dpi (1).png" alt="Brasão" />
+                </div>
+                
+                <!-- Menu de navegação -->
+                <div class="nav-menu">
+                    <!-- Visualizar objetos -->
+                    <div class="nav-item" onclick="navigateToHome()">
+                        <img src="assets/home-icon.svg" alt="Home" class="nav-icon" />
+                        <span>Visualizar objetos</span>
+                    </div>
+                    
+                    <!-- Cadastrar objeto -->
+                    <div class="nav-item" onclick="navigateToCadastro()">
+                        <img src="assets/add-icon.svg" alt="Add" class="nav-icon" />
+                        <span>Cadastrar objeto</span>
+                    </div>
+                    
+                    <!-- Logout/Login (estado não logado) -->
+                    <div class="nav-login active-login">
+                        <div class="avatar">
+                            <div class="avatar-placeholder"></div>
+                        </div>
+                        <span>Login</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Formulário de Login Corporativo -->
+            <div class="login-container">
+                <div class="login-card">
+                    <!-- Cabeçalho do Card -->
+                    <div class="login-header">
+                        <h1>Bem-vindo!</h1>
+                        <p>Faça login para acessar a plataforma</p>
+                    </div>
+                    
+                    <!-- Formulário -->
+                    <form class="login-form" id="loginForm">
+                        <!-- Campo Login -->
+                        <div class="input-group">
+                            <label for="loginInput" class="input-label">Login</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </div>
+                                <input type="text" id="loginInput" class="form-input" placeholder="Digite seu login" required />
+                            </div>
+                        </div>
+                        
+                        <!-- Campo Senha -->
+                        <div class="input-group">
+                            <label for="passwordInput" class="input-label">Senha</label>
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <circle cx="12" cy="16" r="1"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                </div>
+                                <input type="password" id="passwordInput" class="form-input" placeholder="Digite sua senha" required />
+                            </div>
+                        </div>
+                        
+                        <!-- Botões de Ação -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary login-btn">
+                                <span>Entrar</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14"/>
+                                    <path d="M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            
+                            <div class="divider">
+                                <span>ou</span>
+                            </div>
+                            
+                            <button type="button" class="btn-secondary" onclick="navigateToRegister()">
+                                <span>Criar conta</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- Fim content -->
+    </div> <!-- Fim main-container -->
+
+    <script src="js/login.js"></script>
+</body>
+</html>

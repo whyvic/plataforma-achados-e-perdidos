@@ -1,0 +1,10 @@
+<!-- Logo melhorado para Plataforma de Achados e Perdidos -->
+<svg width="119" height="32" viewBox="0 0 119 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="119" height="32" fill="#FFFFFF" rx="4"/>
+  <!-- Ícone de busca -->
+  <circle cx="12" cy="16" r="6" stroke="#003A65" stroke-width="2" fill="none"/>
+  <path d="16.5 20.5L20 24" stroke="#003A65" stroke-width="2" stroke-linecap="round"/>
+  <!-- Texto -->
+  <text x="28" y="12" fill="#003A65" font-family="Arial" font-size="8" font-weight="bold">ACHADOS E</text>
+  <text x="28" y="22" fill="#003A65" font-family="Arial" font-size="8" font-weight="bold">PERDIDOS</text>
+</svg>

@@ -1,0 +1,7 @@
+<!-- User icon - maior e ainda mais à direita -->
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cabeça -->
+  <circle cx="13" cy="6.5" r="4" fill="black"/>
+  <!-- Corpo -->
+  <path d="M6 18C6 14 9 11.5 13 11.5C17 11.5 20 14 20 18" fill="black"/>
+</svg>

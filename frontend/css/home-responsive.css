@@ -1,0 +1,609 @@
+/* home.css - Versão Responsiva */
+
+/* Sidebar de filtros */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 280px;
+    height: calc(100vh - 80px);
+    background: #FFFFFF;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px 20px;
+    overflow-y: auto;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+/* Toggle sidebar para mobile */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background: #499BCE;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+/* Seção de pesquisa */
+.search-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.search-section h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #132960;
+    margin-bottom: 12px;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #D9D9D9;
+    border-radius: 6px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #499BCE;
+    box-shadow: 0 0 0 2px rgba(73, 155, 206, 0.1);
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-btn {
+    padding: 10px 12px;
+    background: #499BCE;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: #3a8bb8;
+    transform: translateY(-1px);
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.clear-search-btn {
+    width: 100%;
+    padding: 8px;
+    background: #f44336;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.clear-search-btn:hover {
+    background: #d32f2f;
+}
+
+/* Área principal de conteúdo */
+.main-content {
+    margin-left: 300px;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+}
+
+/* Layout de cards em linhas */
+.cards-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* Cards de itens */
+.object-card {
+    width: 250px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.object-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Backgrounds específicos para categorias */
+.garrafa-image { background: url('../assets/product-placeholder-1.png') center/cover; }
+.cartao-image { background: url('../assets/product-placeholder-2.png') center/cover; }
+.chaveiro-image { background: url('../assets/product-placeholder-3.png') center/cover; }
+/* Backgrounds específicos para categorias */
+.garrafa-image { background: url('../assets/product-placeholder-1.png') center/cover; }
+.cartao-image { background: url('../assets/product-placeholder-2.png') center/cover; }
+.chaveiro-image { background: url('../assets/product-placeholder-3.png') center/cover; }
+.eletronico-image { background: url('../assets/product-placeholder-4.png') center/cover; }
+
+/* Classes de background para imagens de cards */
+.garrafa-bg { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); }
+.cartao-bg { background: linear-gradient(135deg, #4ECDC4, #6EE2D8); }
+.chaves-bg { background: linear-gradient(135deg, #45B7D1, #6BC5DB); }
+.eletronico-bg { background: linear-gradient(135deg, #96CEB4, #A8D5C4); }
+.outros-bg { background: linear-gradient(135deg, #FFA726, #FFB84D); }
+.cartoes-bg { background: linear-gradient(135deg, #4ECDC4, #6EE2D8); }
+.chaveiros-bg { background: linear-gradient(135deg, #45B7D1, #6BC5DB); }
+.eletronicos-bg { background: linear-gradient(135deg, #96CEB4, #A8D5C4); }
+
+/* Imagem de foto do item */
+.item-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Placeholder para itens sem foto */
+.placeholder-icon {
+    font-size: 48px;
+    color: #999;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Card sem imagem */
+.card-image.no-image {
+    background-color: #F5F5F5;
+}
+
+.card-image.no-image .placeholder-icon {
+    font-size: 52px;
+    color: #CCC;
+}
+
+.placeholder-img {
+    width: 60px;
+    height: 60px;
+    background: #D9D9D9;
+    border-radius: 8px;
+}
+
+/* Tags de categoria */
+.category-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.garrafa-tag { background: #FF6B6B; }
+.cartao-tag { background: #4ECDC4; }
+.chaveiro-tag { background: #45B7D1; }
+.eletronico-tag { background: #96CEB4; }
+.outros-tag { background: #FFA726; }
+.cartoes-tag { background: #4ECDC4; }
+.chaveiros-tag { background: #45B7D1; }
+.eletronicos-tag { background: #96CEB4; }
+
+/* Tags de status */
+.status-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.encontrado-tag { background: #4CAF50; }
+.devolvido-tag { background: #2196F3; }
+.doacao-tag { background: #FF9800; }
+
+.card-info {
+    padding: 16px;
+}
+
+.card-info h4 {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-details p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.3;
+}
+
+/* Checkboxes funcionais dos filtros */
+.filter-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #499BCE;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #F5F5F5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.filter-item:hover {
+    background: #E8E8E8;
+    transform: translateX(5px);
+}
+
+.filter-item label {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter-info {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.count, .category-count {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Seções de filtro */
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #499BCE;
+}
+
+.filter-options, .filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Área principal de conteúdo */
+.main-content {
+    margin-left: 300px;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+}
+
+/* Layout de cards em linhas conforme modelo original */
+.cards-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* Cards de itens com dimensões específicas */
+.object-card {
+    width: 250px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.object-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Backgrounds específicos para categorias */
+.garrafa-image { background: url('../assets/product-placeholder-1.png') center/cover; }
+.cartao-image { background: url('../assets/product-placeholder-2.png') center/cover; }
+.chaveiro-image { background: url('../assets/product-placeholder-3.png') center/cover; }
+.eletronico-image { background: url('../assets/product-placeholder-4.png') center/cover; }
+
+/* Tags de categoria */
+.category-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.garrafa-tag { background: #FF6B6B; }
+.cartao-tag { background: #4ECDC4; }
+.chaveiro-tag { background: #45B7D1; }
+.eletronico-tag { background: #96CEB4; }
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder-img {
+    width: 60px;
+    height: 60px;
+    background: #D9D9D9;
+    border-radius: 8px;
+}
+
+.card-info {
+    padding: 16px;
+}
+
+.card-info h4 {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-details p {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.3;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+    
+    .main-content {
+        margin-left: 270px;
+        padding: 15px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+        padding-top: 60px;
+    }
+    
+    .cards-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .object-card {
+        width: 100%;
+        max-width: 300px;
+        height: 280px;
+        border-radius: 8px;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+    
+    .card-info {
+        padding: 12px;
+    }
+    
+    .card-info h4 {
+        font-size: 15px;
+    }
+    
+    .card-details p {
+        font-size: 12px;
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+        padding-top: 50px;
+    }
+    
+    .cards-row {
+        gap: 12px;
+    }
+    
+    .object-card {
+        max-width: 280px;
+        height: 260px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+    
+    .filter-section h3 {
+        font-size: 16px;
+    }
+    
+    .filter-option label {
+        font-size: 13px;
+    }
+}
+
+/* Overlay para sidebar mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Telas grandes */
+@media (min-width: 1400px) {
+    .sidebar {
+        width: 320px;
+    }
+    
+    .main-content {
+        margin-left: 340px;
+    }
+    
+    .cards-row {
+        gap: 25px;
+    }
+    
+    .object-card {
+        width: 280px;
+        height: 320px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .card-info h4 {
+        font-size: 18px;
+    }
+    
+    .card-details p {
+        font-size: 14px;
+    }
+}

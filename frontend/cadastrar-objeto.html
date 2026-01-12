@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Objeto - Plataforma de Achados e Perdidos</title>
+    <link rel="stylesheet" href="css/responsive-global.css">
+    <link rel="stylesheet" href="css/cadastrar-objeto-responsive.css">
+    <link rel="stylesheet" href="css/toast.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/brasao1_horizontal_cor_72dpi (1).png" alt="Brasão" />
+                </div>
+                <div class="nav-menu">
+                    <div class="nav-item clickable" onclick="window.location.href='home.html'">
+                        <img src="assets/home-icon.svg" alt="Home" class="nav-icon">
+                        <span>Visualizar objetos</span>
+                    </div>
+                    <div class="nav-item">
+                        <img src="assets/add-icon.svg" alt="Add" class="nav-icon">
+                        <span>Cadastrar objeto</span>
+                    </div>
+                    <div class="nav-login">
+                        <div class="avatar">
+                            <img src="assets/logout-icon.svg" alt="Logout" />
+                        </div>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content">
+            <div class="cadastrar-objeto-container">
+                <!-- Sidebar de Etapas -->
+                <div class="sidebar">
+                    <h2>Etapas do Cadastro</h2>
+                    <div class="step-item active">
+                        <div class="step-number">1</div>
+                        <span>Informações do Objeto</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <span>Localização</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <span>Fotos</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <span>Validação</span>
+                    </div>
+                </div>
+
+                <!-- Área principal do formulário -->
+                <div class="main-form">
+                    <!-- Container do formulário -->
+                    <div class="form-container">
+            <!-- Seção Cadastro Pessoal -->
+            <div class="form-section">
+                <h2>Cadastro pessoal</h2>
+                <div class="form-fields">
+                    <div class="field-group">
+                        <label>Nome completo</label>
+                        <input type="text" class="form-input" id="nome-completo">
+                    </div>
+                    <div class="field-group">
+                        <label>Matrícula</label>
+                        <input type="text" class="form-input" id="matricula">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Objeto Perdido -->
+            <div class="form-section">
+                <h2>Objeto perdido</h2>
+                <div class="form-fields">
+                    <div class="field-group">
+                        <label>Nome do objeto</label>
+                        <input type="text" class="form-input" id="nome-objeto">
+                    </div>
+                    <div class="field-group">
+                        <label>Categoria</label>
+                        <select class="form-input" id="categoria">
+                            <option value="">Selecione uma categoria</option>
+                            <option value="garrafas">Garrafas</option>
+                            <option value="cartoes">Cartões</option>
+                            <option value="chaveiros">Chaveiros</option>
+                            <option value="eletronicos">Eletrônicos</option>
+                            <option value="roupas-acessorios">Roupas e acessórios</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Onde foi encontrado</label>
+                        <select class="form-input" id="local-encontrado">
+                            <option value="">Selecione o local</option>
+                            <option value="sala-aula">Sala de Aula</option>
+                            <option value="laboratorio">Laboratório</option>
+                            <option value="ru">RU</option>
+                            <option value="hall">Hall</option>
+                            <option value="biblioteca">Biblioteca</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Dê mais detalhes do local</label>
+                        <input type="text" class="form-input" id="detalhes-local">
+                    </div>
+                    <div class="field-group">
+                        <label>Adicione uma foto do objeto</label>
+                        <input type="file" class="form-input" accept=".jpg,.jpeg,.png" id="foto-objeto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Validação do Objeto -->
+            <div class="form-section">
+                <h2>Validação do objeto</h2>
+                <div class="form-fields">
+                    <div class="field-group">
+                        <label>Pergunta de validação</label>
+                        <input type="text" class="form-input" id="pergunta">
+                    </div>
+                    <div class="field-group">
+                        <label>Resposta de validação</label>
+                        <input type="text" class="form-input" id="resposta">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Cadastrar -->
+            <div class="submit-container">
+                <button class="btn-submit" id="btn-cadastrar">
+                    <img src="assets/add-icon-white.svg" alt="Add" class="btn-icon">
+                    <span>Cadastrar objeto</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Confirmação -->
+    <div class="toast-overlay" id="toast-overlay">
+        <div class="toast-modal">
+            <div class="toast-header">
+                <span>Cadastro de produto</span>
+                <button class="toast-close-btn" id="toast-close">
+                    ×
+                </button>
+            </div>
+            <div class="toast-content">
+                <h1>Atenção!</h1>
+                <p>Após o cadastro, o produto encontrado deve ser encaminhado para a portaria para aguardar a devolução</p>
+            </div>
+            <div class="toast-footer">
+                <button class="btn-toast-action" id="btn-entregue">
+                    <div class="check-icon"></div>
+                    <span>Entregue</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cadastrar-objeto.js"></script>
+    
+    <!-- Script backup para navegação -->
+    <script>
+        // Backup: configurar navegação se o script principal falhar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Backup script carregado');
+            
+            // Tentar configurar novamente se necessário
+            const homeBtn = document.querySelector('.nav-item');
+            if (homeBtn && !homeBtn.onclick) {
+                console.log('Configurando backup para botão home');
+                homeBtn.onclick = function() {
+                    console.log('Backup onclick - indo para home');
+                    window.location.href = 'home.html';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

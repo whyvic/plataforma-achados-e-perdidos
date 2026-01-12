@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Plataforma de Achados e Perdidos</title>
+    <link rel="stylesheet" href="css/responsive-global.css">
+    <link rel="stylesheet" href="css/cadastro-responsive.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/brasao1_horizontal_cor_72dpi (1).png" alt="Brasão" />
+                </div>
+                <div class="nav-menu">
+                    <div class="nav-item clickable" onclick="window.location.href='home.html'">
+                        <img src="assets/home-icon.svg" alt="Home" class="nav-icon">
+                        <span>Visualizar objetos</span>
+                    </div>
+                    <div class="nav-item clickable" onclick="window.location.href='login.html'">
+                        <img src="assets/logout-icon.svg" alt="Login" class="nav-icon">
+                        <span>Já tenho conta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulário de Cadastro -->
+        <div class="cadastro-form-container">
+            <div class="cadastro-form">
+                <!-- Campos do formulário -->
+                <div class="form-content">
+                    <!-- Título -->
+                    <h2>Criar Conta</h2>
+                    
+                    <!-- Campos de entrada -->
+                    <div class="form-fields">
+                        <!-- Campo Nome -->
+                        <div class="input-group">
+                            <label class="field-label">Nome completo</label>
+                            <div class="input-field">
+                                <input type="text" id="nomeInput" placeholder="Seu nome completo" />
+                            </div>
+                        </div>
+                        
+                        <!-- Campo Email -->
+                        <div class="input-group">
+                            <label class="field-label">Email</label>
+                            <div class="input-field">
+                                <input type="email" id="emailInput" placeholder="seu.email@exemplo.com" />
+                            </div>
+                        </div>
+                        
+                        <!-- Campo Siape -->
+                        <div class="input-group">
+                            <label class="field-label">SIAPE</label>
+                            <div class="input-field">
+                                <input type="text" id="siapeInput" placeholder="Seu SIAPE" />
+                            </div>
+                        </div>
+                        
+                        <!-- Campo Senha -->
+                        <div class="input-group">
+                            <label class="field-label">Senha</label>
+                            <div class="input-field">
+                                <input type="password" id="senhaInput" placeholder="Mínimo 6 caracteres" />
+                            </div>
+                        </div>
+                        
+                        <!-- Campo Confirmar Senha -->
+                        <div class="input-group">
+                            <label class="field-label">Confirmar senha</label>
+                            <div class="input-field">
+                                <input type="password" id="confirmarSenhaInput" placeholder="Digite a senha novamente" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botão de ação -->
+                <div class="form-actions">
+                    <button class="cadastrar-btn" onclick="performRegister()">
+                        <div class="check-icon">
+                            <div class="check-mark"></div>
+                        </div>
+                        <span>Criar Conta</span>
+                    </button>
+                    
+                    <div class="login-link">
+                        <span>Já possui uma conta?</span>
+                        <a href="login.html">Fazer login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cadastro.js"></script>
+</body>
+</html>

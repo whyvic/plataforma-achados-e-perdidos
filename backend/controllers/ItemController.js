@@ -1,79 +1,78 @@
-// controlador para lidar com as operacoes relacionadas aos itens que estão guardados no achados
 const Item = require('../models/Item');
 
-// RN01: Qualquer pessoa pode cadastrar (Público) [cite: 32]
-// RF01: Cadastro completo [cite: 34]
-exports.createItem = async (req, res) => {
-    try {
-        const { nome, categoria, descricao, localEncontrado, dataAchado, foto, perguntaValidacao, respostaValidacao } = req.body;
-        
-        const newItem = await Item.create({
-            nome, categoria, descricao, localEncontrado, dataAchado, foto, perguntaValidacao, respostaValidacao
-        });
-
-        res.status(201).json(newItem);
-    } catch (error) {
-        res.status(500).json({ message: "Erro ao cadastrar item", error });
-    }
-};
-
-// RF02: Consulta pública [cite: 34]
-// RF03: Filtros (Categoria, Local, Palavra-chave) [cite: 34]
+// 1. LISTAR ITENS (Todo mundo pode ver)
 exports.getItems = async (req, res) => {
     try {
-        const { categoria, local, busca } = req.query;
-        let query = { status: 'Encontrado' }; // Por padrão, só mostra o que não foi devolvido
-
-        if (categoria) query.categoria = categoria;
-        if (local) query.localEncontrado = { $regex: local, $options: 'i' };
-        if (busca) {
-            query.$or = [
-                { nome: { $regex: busca, $options: 'i' } },
-                { descricao: { $regex: busca, $options: 'i' } }
-            ];
-        }
-
-        const items = await Item.find(query).sort({ createdAt: -1 });
+        const items = await Item.findAll();
         res.json(items);
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar itens" });
     }
 };
 
-// RN02: Devolução mediada pela portaria [cite: 32]
-// RF07: Registro de devolução [cite: 35]
-exports.registrarDevolucao = async (req, res) => {
+// 2. CRIAR ITEM (Todo mundo pode criar)
+exports.createItem = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { nomeRecebedor, matriculaRecebedor } = req.body;
-        
-        // O porteiro vem do middleware de autenticação (req.user)
-        const porteiroResponsavel = req.user.nome; 
-
-        const item = await Item.findByIdAndUpdate(id, {
-            status: 'Devolvido',
-            dadosDevolucao: {
-                nomeRecebedor,
-                matriculaRecebedor,
-                porteiroResponsavel,
-                dataDevolucao: new Date()
-            }
-        }, { new: true });
-
-        if (!item) return res.status(404).json({ message: "Item não encontrado" });
-
-        res.json({ message: "Devolução registrada com sucesso", item });
+        const newItem = await Item.create(req.body);
+        res.status(201).json(newItem);
     } catch (error) {
-        res.status(500).json({ message: "Erro na devolução" });
+        res.status(500).json({ message: "Erro ao criar item" });
     }
 };
 
-// RF08: Histórico para porteiros (vê tudo, inclusive devolvidos) [cite: 35]
-exports.getHistorico = async (req, res) => {
+// 3. ATUALIZAR STATUS (Só Porteiro pode!)
+exports.registrarDevolucao = async (req, res) => {
     try {
-        const items = await Item.find().sort({ createdAt: -1 });
-        res.json(items);
+        // --- VERIFICAÇÃO DE SEGURANÇA ---
+        // Se o usuário não existe ou NÃO for Porteiro/Admin, bloqueia.
+        if (!req.user || (req.user.perfil !== 'Porteiro' && req.user.perfil !== 'Admin')) {
+            return res.status(403).json({ message: "⛔ Acesso negado! Apenas porteiros podem mudar status." });
+        }
+
+        const { id } = req.params;
+        const { nomeRecebedor, matriculaRecebedor, novoStatus } = req.body;
+        
+        const item = await Item.findByPk(id);
+
+        if (!item) {
+            return res.status(404).json({ message: "Item não encontrado" });
+        }
+
+        // Atualiza
+        item.status = novoStatus || 'Devolvido';
+        item.recebedorNome = nomeRecebedor; 
+        item.recebedorMatricula = matriculaRecebedor;
+        item.porteiroResponsavel = req.user.nome; // Grava quem fez a baixa
+        
+        await item.save();
+
+        res.json({ message: "Status atualizado com sucesso!", item });
+
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar histórico" });
+        console.error("Erro no servidor:", error);
+        res.status(500).json({ message: "Erro interno ao salvar." });
+    }
+};
+
+// 4. EXCLUIR ITEM (Só Porteiro pode!)
+exports.deleteItem = async (req, res) => {
+    try {
+        // --- VERIFICAÇÃO DE SEGURANÇA ---
+        if (!req.user || (req.user.perfil !== 'Porteiro' && req.user.perfil !== 'Admin')) {
+            return res.status(403).json({ message: "⛔ Acesso negado! Apenas porteiros podem excluir itens." });
+        }
+
+        const { id } = req.params;
+        const item = await Item.findByPk(id);
+
+        if (!item) {
+            return res.status(404).json({ message: "Item não encontrado" });
+        }
+
+        await item.destroy();
+        res.json({ message: "Item excluído com sucesso!" });
+
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao excluir item" });
     }
 };

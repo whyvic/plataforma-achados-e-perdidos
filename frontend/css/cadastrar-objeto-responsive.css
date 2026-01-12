@@ -1,0 +1,470 @@
+/* cadastrar-objeto-responsive.css - Estilos responsivos para cadastro de objeto */
+
+/* Layout principal */
+.cadastrar-objeto-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Sidebar de etapas */
+.sidebar {
+    width: 280px;
+    background: #FFFFFF;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #132960;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #499BCE;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    background: #F5F8FF;
+}
+
+.step-item.active {
+    background: #E8F4FF;
+    border-left: 4px solid #499BCE;
+}
+
+.step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+}
+
+.step-item.active .step-number {
+    background: #499BCE;
+    color: #FFFFFF;
+}
+
+.step-item span {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Área principal do formulário */
+.main-form {
+    flex: 1;
+    padding: 30px;
+    background: #F8F9FA;
+    overflow-y: auto;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+/* Seções do formulário */
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #132960;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #499BCE;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-group label {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 12px 16px;
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #499BCE;
+    box-shadow: 0 0 0 3px rgba(73, 155, 206, 0.1);
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Input file customizado */
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-input-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    border: 2px dashed #D9D9D9;
+    border-radius: 8px;
+    background: #FAFAFA;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input-display:hover {
+    border-color: #499BCE;
+    background: #F5F8FF;
+}
+
+.file-input-display.has-file {
+    border-style: solid;
+    border-color: #499BCE;
+    background: #E8F4FF;
+}
+
+.file-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    opacity: 0.6;
+}
+
+.file-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Botão de submit */
+.submit-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0 20px 0;
+}
+
+.btn-submit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #132960;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #1a3470;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(19, 41, 96, 0.3);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Toast de sucesso */
+.toast-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.toast {
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.toast h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #132960;
+    margin-bottom: 15px;
+}
+
+.toast p {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn-entregue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.btn-entregue:hover {
+    background: #45a049;
+    transform: translateY(-1px);
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .main-form {
+        padding: 20px;
+    }
+    
+    .form-container {
+        padding: 25px;
+    }
+    
+    .field-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    .cadastrar-objeto-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+        order: 2;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .step-item {
+        padding: 8px;
+        margin-bottom: 5px;
+    }
+    
+    .step-item span {
+        font-size: 13px;
+    }
+    
+    .main-form {
+        padding: 15px;
+        order: 1;
+    }
+    
+    .form-container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    .form-section h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .form-fields {
+        gap: 15px;
+    }
+    
+    .field-row {
+        gap: 12px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .file-input-display {
+        padding: 30px 15px;
+    }
+    
+    .btn-submit {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .btn-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    .main-form {
+        padding: 10px;
+    }
+    
+    .form-container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .form-section {
+        margin-bottom: 20px;
+    }
+    
+    .form-section h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .form-fields {
+        gap: 12px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+    
+    .file-input-display {
+        padding: 25px 10px;
+    }
+    
+    .file-text {
+        font-size: 12px;
+    }
+    
+    .btn-submit {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+    
+    .toast {
+        padding: 20px;
+    }
+    
+    .toast h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .toast p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .cadastrar-objeto-container {
+        flex-direction: row;
+    }
+    
+    .sidebar {
+        width: 200px;
+        order: 1;
+        max-height: none;
+    }
+    
+    .main-form {
+        order: 2;
+    }
+}

@@ -1,0 +1,307 @@
+/* Modal de Status - Design Corporativo Padronizado */
+.toast-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(19, 41, 96, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.status-modal {
+    width: 624px;
+    height: auto;
+    max-height: 85vh;
+    background: #FFFFFF;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    box-shadow: 0 20px 60px rgba(19, 41, 96, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: modalSlideIn 0.3s ease-out;
+    margin: 20px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    height: 60px;
+    background: linear-gradient(135deg, #499BCE 0%, #3a8bb8 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.modal-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    gap: 24px;
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+    min-height: 400px;
+}
+
+.object-image {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #E8E8E8;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.object-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.object-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.validation-section {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.validation-section h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #132960;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #132960;
+    margin-left: 4px;
+}
+
+.form-input, .status-select {
+    height: 44px;
+    background: #FFFFFF;
+    border: 2px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 0 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: #333333;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-input:focus, .status-select:focus {
+    outline: none;
+    border-color: #499BCE;
+    box-shadow: 0 0 0 3px rgba(73, 155, 206, 0.1);
+    background: #FAFBFC;
+}
+
+.form-input::placeholder {
+    color: #999999;
+}
+
+.status-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23499BCE' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+    padding-right: 50px;
+}
+
+.status-select:hover {
+    border-color: #3a8bb8;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: #FFFFFF;
+    border-top: 1px solid #E8E8E8;
+    flex-shrink: 0;
+}
+
+.delete-btn, .save-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #DC3545 0%, #C82333 100%);
+    color: white;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #C82333 0%, #A71E2A 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #132960 0%, #1a3470 100%);
+    color: white;
+    box-shadow: 0 2px 4px rgba(19, 41, 96, 0.2);
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #1a3470 0%, #0f1f4a 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(19, 41, 96, 0.3);
+}
+
+.delete-btn:active, .save-btn:active {
+    transform: translateY(0);
+}
+
+.delete-btn span:first-child,
+.save-btn span:first-child {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .status-modal {
+        width: 95vw;
+        height: auto;
+        max-height: 90vh;
+        margin: 10px;
+    }
+    
+    .modal-content {
+        padding: 20px 16px;
+        gap: 20px;
+        min-height: auto;
+    }
+    
+    .object-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .validation-section {
+        max-width: 100%;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .delete-btn, .save-btn {
+        width: 100%;
+    }
+}
+
+@media (max-height: 700px) {
+    .status-modal {
+        max-height: 95vh;
+    }
+    
+    .modal-content {
+        padding: 16px;
+        gap: 16px;
+        min-height: auto;
+    }
+    
+    .object-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .validation-section h3 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+}
