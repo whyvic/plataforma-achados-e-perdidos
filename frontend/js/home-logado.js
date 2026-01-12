@@ -1,5 +1,5 @@
 /**
- * home-logado.js - Versão Final (Com Validação de Resposta REAL)
+ * home-logado.js - Versão Final (Links Corrigidos para Produção)
  */
 
 let todosObjetos = [];
@@ -18,7 +18,7 @@ function verificarLogin() {
     if (!token) console.warn("Aviso: Sem token de login.");
 }
 
-// 1. BUSCAR ITENS NO BANCO
+// 1. BUSCAR ITENS NO BANCO (CORRETO)
 async function carregarObjetosDoBanco() {
     const container = document.querySelector('.main-content');
     if(!container) return; 
@@ -26,6 +26,7 @@ async function carregarObjetosDoBanco() {
     container.innerHTML = '<div class="loading-message">🔄 Buscando itens...</div>';
 
     try {
+        // Link Atualizado ✅
         const response = await fetch('https://plataforma-achados-e-perdidos.onrender.com/api/items');
         if (!response.ok) throw new Error('Falha na API');
 
@@ -113,21 +114,20 @@ window.abrirModalDetalhes = function(item) {
     const statusSelect = document.getElementById('status-dropdown');
     if(statusSelect) statusSelect.value = item.status;
 
-    // 2. PERGUNTA (Bloqueada: Porteiro só lê)
+    // 2. PERGUNTA
     const inputPergunta = document.getElementById('validation-question');
     if (inputPergunta) {
         inputPergunta.value = item.perguntaValidacao || "Sem pergunta cadastrada";
         inputPergunta.disabled = true; 
     }
 
-    // 3. RESPOSTA (Liberada: Porteiro digita o que ouvir)
+    // 3. RESPOSTA
     const inputResposta = document.getElementById('validation-answer');
     if (inputResposta) {
-        inputResposta.value = ""; // Começa vazio para digitar
+        inputResposta.value = ""; 
         inputResposta.placeholder = "Digite a resposta do aluno...";
-        inputResposta.disabled = false; // Liberado!
+        inputResposta.disabled = false; 
         
-        // TRUQUE: Guardamos a resposta certa num lugar escondido (dataset) para comparar depois
         inputResposta.dataset.gabarito = item.respostaValidacao || "";
     }
 
@@ -138,7 +138,7 @@ window.closeStatusModal = function() {
     document.getElementById('statusModal').style.display = 'none';
 }
 
-// 4. SALVAR ALTERAÇÃO (COM VALIDAÇÃO DE RESPOSTA!)
+// 4. SALVAR ALTERAÇÃO
 async function saveItemChanges() {
     const idItem = itemAtualId;
     
@@ -152,20 +152,18 @@ async function saveItemChanges() {
 
     let nome = "N/A", mat = "N/A";
     
-    // --- LÓGICA DE VALIDAÇÃO (A Mágica Acontece Aqui) ---
+    // --- LÓGICA DE VALIDAÇÃO ---
     if (novoStatus === 'Devolvido') {
         const campoResposta = document.getElementById('validation-answer');
-        const respostaDigitada = campoResposta.value.trim().toLowerCase(); // O que o porteiro digitou
-        const respostaCerta = (campoResposta.dataset.gabarito || "").trim().toLowerCase(); // O que está no banco
+        const respostaDigitada = campoResposta.value.trim().toLowerCase(); 
+        const respostaCerta = (campoResposta.dataset.gabarito || "").trim().toLowerCase(); 
 
         console.log("Comparando:", respostaDigitada, "vs", respostaCerta);
 
-        // Se a resposta estiver errada, BLOQUEIA TUDO
         if (respostaDigitada !== respostaCerta) {
             return alert("❌ RESPOSTA INCORRETA!\nO objeto não pode ser devolvido se a validação falhar.");
         }
 
-        // Se chegou aqui, a resposta está certa! Pede os dados.
         alert("✅ Resposta Correta! Prossiga com a devolução.");
         
         nome = prompt("Quem está retirando? (Nome Completo)");
@@ -174,7 +172,6 @@ async function saveItemChanges() {
         mat = prompt("Qual o SIAPE ou Matrícula?");
         if(!mat) return;
     } 
-    // Se for doação, não precisa de validação de pergunta, só o destino
     else if (novoStatus === 'Encaminhado para doação') {
         nome = prompt("Para qual instituição foi doado?");
         if(!nome) return;
@@ -182,7 +179,8 @@ async function saveItemChanges() {
 
     // Envia para o Backend
     try {
-        const res = await fetch(`http://localhost:3000/api/items/${idItem}/devolucao`, {
+        // --- AQUI ESTAVA O ERRO! CORRIGIDO PARA URL DO RENDER ---
+        const res = await fetch(`https://plataforma-achados-e-perdidos.onrender.com/api/items/${idItem}/devolucao`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -214,7 +212,8 @@ async function deleteItem() {
 
     if (confirm("Tem certeza que deseja apagar este item para sempre?")) {
         try {
-            const res = await fetch(`http://localhost:3000/api/items/${idItem}`, { 
+            // --- AQUI TAMBÉM PRECISAVA CORRIGIR ---
+            const res = await fetch(`https://plataforma-achados-e-perdidos.onrender.com/api/items/${idItem}`, { 
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
