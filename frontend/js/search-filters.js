@@ -8,7 +8,7 @@ let allItems = [];
 let filteredItems = [];
 let currentSearchTerm = '';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://plataforma-achados-e-perdidos.onrender.com/api';
 
 /**
  * Inicializa a aplicação configurando eventos e carregando dados

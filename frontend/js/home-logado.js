@@ -26,7 +26,7 @@ async function carregarObjetosDoBanco() {
     container.innerHTML = '<div class="loading-message">🔄 Buscando itens...</div>';
 
     try {
-        const response = await fetch('http://localhost:3000/api/items');
+        const response = await fetch('https://plataforma-achados-e-perdidos.onrender.com/api/items');
         if (!response.ok) throw new Error('Falha na API');
 
         todosObjetos = await response.json(); 

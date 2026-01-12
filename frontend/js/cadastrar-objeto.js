@@ -108,7 +108,7 @@ async function cadastrarObjeto() {
         };
 
         // 5. Enviar para a API
-        const response = await fetch('http://localhost:3000/api/items', {
+        const response = await fetch('https://plataforma-achados-e-perdidos.onrender.com/api/items', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
